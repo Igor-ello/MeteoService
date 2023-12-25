@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,20 +28,20 @@ public class MeteoService extends Service {
                 sendBroadcast(intent);
             }
         };
-        Toast.makeText(this, "Сервис создан", Toast.LENGTH_LONG).show();
+        Log.d("MyLog", "Сервис создан");
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Thread weatherThread = new Thread(new HttpsRequest(handler));
         weatherThread.start();
-        Toast.makeText(this, "Сервис запущен", Toast.LENGTH_LONG).show();
+        Log.d("MyService", "Сервис запущен");
         return START_NOT_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        Toast.makeText(this, "Сервис уничтожен", Toast.LENGTH_LONG).show();
+        Log.d("MyService", "Сервис уничтожен");
         super.onDestroy();
     }
 

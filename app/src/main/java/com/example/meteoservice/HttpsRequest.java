@@ -24,7 +24,7 @@ public class HttpsRequest implements Runnable {
         this.handler = handler;
         try {
             url = new URL(API_REQUEST+"?"+"key="+KEY+"&"+"q="+CITY);
-            Log.d("result", "URL: " + url);
+            Log.d("MyLog", "URL: " + url);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

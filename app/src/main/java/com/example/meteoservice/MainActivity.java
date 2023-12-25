@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         btnSetCity.setOnClickListener(v -> {
             HttpsRequest.CITY = String.valueOf(edtCity.getText());
 
-            registerReceiver(receiver, new IntentFilter("MeteoService"), RECEIVER_EXPORTED);
+            stopService(intent);
             startService(intent);
         });
     }

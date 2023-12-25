@@ -89,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
         btnSetCity = findViewById(R.id.btnSetCity);
 
         btnSetCity.setOnClickListener(v -> {
-            HttpsRequest.CITY = String.valueOf(edtCity.getText());
+            edtCity.setText(String.valueOf(edtCity.getText()).trim());
+            HttpsRequest.CITY = String.valueOf(edtCity.getText()).trim();
 
             stopService(intent);
             startService(intent);

@@ -27,6 +27,14 @@ public class HttpsRequest implements Runnable {
             Log.d("MyLog", "URL: " + url);
         } catch (MalformedURLException e) {
             Log.e("MyLog", "Ошибка формирования URL: " + e.getMessage());
+            CITY = "Genoa";
+            try {
+                url = new URL(API_REQUEST + "?" + "key=" + KEY + "&" + "q=" + CITY);
+                Log.d("MyLog", "URL: " + url);
+            } catch (MalformedURLException ex) {
+                // Если опять ошибка, можно выполнить другие действия по умолчанию
+                Log.e("MyLog", "Не удалось восстановить URL: " + ex.getMessage());
+            }
         }
     }
 
@@ -34,19 +42,26 @@ public class HttpsRequest implements Runnable {
     public void run() {
         try {
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-            Scanner in = new Scanner(connection.getInputStream());
-            StringBuilder response = new StringBuilder();
-            while(in.hasNext()){
-                response.append(in.nextLine());
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                Scanner in = new Scanner(connection.getInputStream());
+                StringBuilder response = new StringBuilder();
+                while(in.hasNext()){
+                    response.append(in.nextLine());
+                }
+                in.close();
+                connection.disconnect();
+
+                Message msg = Message.obtain();
+                msg.obj = response.toString();
+                handler.sendMessage(msg);
+            } else if (responseCode == HttpURLConnection.HTTP_NOT_FOUND) {
+                Log.e("MyLog", "Ошибка: файл не найден");
+                // TODO: уведомление пользователя
+            } else {
+                Log.e("MyLog", "Неизвестная ошибка. Response Code: " + responseCode);
+                // TODO: уведомление пользователя
             }
-            in.close();
-            connection.disconnect();
-
-            Message msg = Message.obtain();
-            msg.obj = response.toString();
-            handler.sendMessage(msg);
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

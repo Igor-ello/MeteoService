@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MeteoService</string>
+    <string name="enter_the_city">Enter the city: </string>
+    <string name="temp">Temp: </string>
+    <string name="region">Region: </string>
+    <string name="country">Country: </string>
+    <string name="wind_kph">Wind kph: </string>
+    <string name="ok">OK</string>
+    <string name="cloud">Cloud: </string>
+    <string name="humidity">Humidity: </string>
+    <string name="name">Name: </string>
+    <string name="text_about_icon">Text about icon</string>
 </resources>

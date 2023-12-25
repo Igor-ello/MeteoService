@@ -26,7 +26,7 @@ public class HttpsRequest implements Runnable {
             url = new URL(API_REQUEST+"?"+"key="+KEY+"&"+"q="+CITY);
             Log.d("MyLog", "URL: " + url);
         } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+            Log.e("MyLog", "Ошибка формирования URL: " + e.getMessage());
         }
     }
 

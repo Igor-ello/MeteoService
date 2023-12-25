@@ -19,11 +19,13 @@
             android:textSize="30sp">
         </TextView>
         <EditText
+            android:id="@+id/edtCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="100dp">
         </EditText>
         <Button
+            android:id="@+id/btnSetCity"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:text="@string/ok">

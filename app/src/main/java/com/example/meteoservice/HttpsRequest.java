@@ -15,7 +15,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class HttpsRequest implements Runnable {
     static final String KEY = "d3c47e0625444650a9d133848231909";
     static final String API_REQUEST = "https://api.weatherapi.com/v1/current.json";
-    static final String CITY = "Genoa";
+    public static String CITY = "Genoa";
     Handler handler;
 
     URL url;

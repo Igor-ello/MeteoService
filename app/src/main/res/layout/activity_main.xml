@@ -1,91 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:background="@drawable/background">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/enter_the_city"
-            android:textSize="30sp">
-        </TextView>
-        <EditText
-            android:id="@+id/edtCity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="100dp">
-        </EditText>
-        <Button
-            android:id="@+id/btnSetCity"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:text="@string/ok">
-        </Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTextAboutIcon"
+                style="@style/tvParamStyle"
+                android:text="@string/text_about_icon">
+            </TextView>
+
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/logo"
+                android:layout_marginLeft="15dp">
+            </ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/tvParamStyle"
+                android:text="@string/city">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvRegion"
+                style="@style/tvParamStyle"
+                android:text="@string/region">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvCountry"
+                style="@style/tvParamStyle"
+                android:text="@string/country">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvTemp"
+                style="@style/tvParamStyle"
+                android:text="@string/temp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvWind"
+                style="@style/tvParamStyle"
+                android:text="@string/wind_kph">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvHumidity"
+                style="@style/tvParamStyle"
+                android:text="@string/humidity">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tvCloud"
+                style="@style/tvParamStyle"
+                android:text="@string/cloud">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center">
+
+                <TextView
+                    style="@style/tvParamStyle"
+                    android:text="@string/enter_the_city">
+                </TextView>
+
+                <EditText
+                    android:id="@+id/edtCity"
+                    style="@style/tvParamStyle"
+                    android:hint="Your city"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white">
+                </EditText>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSetCity"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/set"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/white"
+                android:textSize="20sp">
+            </Button>
+        </LinearLayout>
     </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/tvName"
-        style="@style/tvParamStyle"
-        android:text="@string/name">
-    </TextView>
-
-    <TextView
-        android:id="@+id/tvRegion"
-        style="@style/tvParamStyle"
-        android:text="@string/region">
-    </TextView>
-
-    <TextView
-        android:id="@+id/tvCountry"
-        style="@style/tvParamStyle"
-        android:text="@string/country">
-    </TextView>
-
-    <TextView
-        android:id="@+id/tvTemp"
-        style="@style/tvParamStyle"
-        android:text="@string/temp">
-    </TextView>
-
-    <TextView
-        android:id="@+id/tvWind"
-        style="@style/tvParamStyle"
-        android:text="@string/wind_kph">
-    </TextView>
-
-    <TextView
-        android:id="@+id/tvHumidity"
-        style="@style/tvParamStyle"
-        android:text="@string/humidity">
-    </TextView>
-
-    <TextView
-        android:id="@+id/tvCloud"
-        style="@style/tvParamStyle"
-        android:text="@string/cloud">
-    </TextView>
-
-
-    <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </ImageView>
-
-    <TextView
-        android:id="@+id/tvTextAboutIcon"
-        style="@style/tvParamStyle"
-        android:text="@string/text_about_icon">
-    </TextView>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
